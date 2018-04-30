@@ -17,9 +17,13 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
+from bank.views import home
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
     url(r'^oauth/', include('social_django.urls')),
 
+    url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^$', home, name='home'),
 ]

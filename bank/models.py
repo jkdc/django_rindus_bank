@@ -13,7 +13,7 @@ class Person(models.Model):
 
 class Account(models.Model):
     iban = IBANField()
-    person = models.ForeignKey(Person, on_delete=models.CASCADE,)
+    person = models.ForeignKey(Person, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.iban

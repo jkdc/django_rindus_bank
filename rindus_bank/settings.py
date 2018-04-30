@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django'
+    'social_django',
+    'bank'
+
 ]
 
 AUTHENTICATION_BACKENDS = (
@@ -65,7 +67,7 @@ ROOT_URLCONF = 'rindus_bank.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='910616987102-4frm0sjg3slg17bp4blrbaqfsb6ch743.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'QJznQg-5NHd8AYd3gGb4Xb_P'

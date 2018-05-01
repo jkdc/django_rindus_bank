@@ -41,7 +41,7 @@ def person_delete(request, pk, template_name='crud/delete_confirmation.html'):
     if request.method=='POST':
         person.delete()
         return redirect('home')
-    return render(request, template_name, {'object':person})
+    return render(request, template_name, {'object':person.first_name + " " + person.last_name})
 
 @login_required
 def person_read(request, pk, template_name='crud/show.html'):
@@ -82,7 +82,7 @@ def account_delete(request, pk, template_name='crud/delete_confirmation.html'):
     if request.method=='POST':
         account.delete()
         return redirect('home')
-    return render(request, template_name, {'object':account})
+    return render(request, template_name, {'object': account.iban})
 
 @login_required
 def account_read(request, pk, template_name='crud/show_account.html'):

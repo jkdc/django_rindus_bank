@@ -32,3 +32,12 @@ def person_update(request, pk, template_name='crud/create.html'):
         form.save()
         return redirect('home')
     return render(request, template_name, {'form':form})
+
+@login_required
+def person_delete(request, pk, template_name='crud/delete_confirmation.html'):
+    if request.user.is_authenticated:
+        person= get_object_or_404(Person, pk=pk)
+    if request.method=='POST':
+        person.delete()
+        return redirect('home')
+    return render(request, template_name, {'object':person})

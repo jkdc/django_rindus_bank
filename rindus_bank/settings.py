@@ -140,6 +140,7 @@ STATIC_URL = '/static/'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'login'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='910616987102-4frm0sjg3slg17bp4blrbaqfsb6ch743.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'QJznQg-5NHd8AYd3gGb4Xb_P'

@@ -1,6 +1,6 @@
 <h1>Person: </h1>
-<h2>-First Name: </h2>
-<h2>-Last Name: </h2>
+<h2>-First Name: {{ person.first_name }}</h2>
+<h2>-Last Name: {{ person.last_name }}</h2>
 <h1>Accounts</h1>
 <a href="{% url 'account_create' person.pk %}">Add New</a>
 <table class="table">
@@ -17,7 +17,7 @@
       <th scope="row"></th>
       <td>{{ account.iban }}</td>
       <td>
-          <a href="{% url 'account_create' account.pk %}">Show</a>
+          <a href="{% url 'account_read' account.pk %}">Show</a>
           <a href="{% url 'account_update' account.pk %}">Update</a>
           <a href="{% url 'account_delete' account.pk %}">Delete</a>
       </td>

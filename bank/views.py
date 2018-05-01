@@ -83,3 +83,10 @@ def account_delete(request, pk, template_name='crud/delete_confirmation.html'):
         account.delete()
         return redirect('home')
     return render(request, template_name, {'object':account})
+
+@login_required
+def account_read(request, pk, template_name='crud/show_account.html'):
+    if request.user.is_authenticated:
+        account = get_object_or_404(Account, pk=pk)
+        return render(request, template_name, {'account':account})
+    return render(request, template_name)

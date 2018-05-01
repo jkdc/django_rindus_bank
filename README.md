@@ -11,7 +11,9 @@ This is a simple CRUD app built in Django and python3 for manage personal accoun
 -Use PostgreSQL as the database backend
 -Use Python 3.x
 '''
+
 ## Plugin and libraries
+
 '''
 psycopg2  ->  connect Django with Postgres
 social-auth-app-django  -> social auth for google accounts
@@ -27,6 +29,7 @@ These instructions will get you a copy of the project up and running on your loc
 You need a system with docker-compose.
 
 ### Installing
+
 '''
 1- Clone this repo -> git clone https://github.com/jkdc/django_rindus_bank.git
 2- Go to folder cloned -> cd django_rindus_bank
@@ -39,5 +42,5 @@ You need a system with docker-compose.
 
 ## Authors
 
-* **Joaquín Carodoso**
+* **Joaquín Cardoso**
 

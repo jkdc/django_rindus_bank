@@ -1,31 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Person: </h1>
-<h2>-First Name: {{ person.first_name }}</h2>
-<h2>-Last Name: {{ person.last_name }}</h2>
-<h1>Accounts</h1>
-<a href="{% url 'account_create' person.pk %}">Add New</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">IBAN</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for account in accounts %}
-    <tr>
-      <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ account.iban }}</td>
-      <td>
-          <a href="{% url 'account_read' account.pk %}">Show</a>
-          <a href="{% url 'account_update' account.pk %}">Update</a>
-          <a href="{% url 'account_delete' account.pk %}">Delete</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+    <div class="row">
+        <h4>Person: </h4>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <h5>-First Name: {{ person.first_name }}</h5>
+            </li>
+            <li class="list-group-item"><h5>-Last Name: {{ person.last_name }}</h5></li>
+        </ul>
+    </div>
+    <div class="row">
+        <h4 class="pull-left">Accounts:</h4>
+        <a href="{% url 'account_create' person.pk %}" class="btn btn-primary pull-right">Add New</a>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">IBAN</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for account in accounts %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ account.iban }}</td>
+                    <td>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <a href="{% url 'account_read' account.pk %}" class="btn btn-info btn-sm">Show</a>
+                            <a href="{% url 'account_update' account.pk %}" class="btn btn-success btn-sm">Update</a>
+                            <a href="{% url 'account_delete' account.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}

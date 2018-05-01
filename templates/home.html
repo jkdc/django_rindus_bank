@@ -1,31 +1,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2>Homepage</h2>
-  <p>Hello {{ user.username }}!</p>
+    <p>Hello {{ user.username }}!</p>
+    <div class="center-block">
+        <a href="{% url 'person_create' %}" class="btn btn-primary pull-right">New Person</a>
 
-  <a href="{% url 'person_create' %}">New Person</a>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Person</th>
-      <th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for person in people_list %}
-    <tr>
-      <th scope="row">{{ forloop.counter }}</th>
-      <td>{{ person.first_name }}  {{ person.last_name }}</td>
-      <td>
-          <a href="{% url 'person_read' person.pk %}">show</a>
-          <a href="{% url 'person_update' person.pk %}">edit</a>
-          <a href="{% url 'person_delete' person.pk %}">delete</a>
-      </td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Person</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for person in people_list %}
+                <tr>
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ person.first_name }} {{ person.last_name }}</td>
+                    <td>
+                        <a href="{% url 'person_read' person.pk %}">show</a>
+                        <a href="{% url 'person_update' person.pk %}">edit</a>
+                        <a href="{% url 'person_delete' person.pk %}">delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
+
+<style>
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 {% endblock %}

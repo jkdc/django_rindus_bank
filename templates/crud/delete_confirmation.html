@@ -1,8 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">{% csrf_token %}
-    Are you sure you want to delete "{{ object }}" ?
-    <input type="submit" value="Submit" />
-</form>
+    <div class="form">
+        <form method="post">{% csrf_token %}
+            Are you sure you want to delete "{{ object }}" ?
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
+    <style>
+        .form {
+            max-width: 420px;
+            padding: 30px 38px 66px;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
 {% endblock %}

@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="POST" class="person-form">{% csrf_token %}
-    {{ form.as_p }}
+    <div class="form">
+        <form method="POST" class="person-form">{% csrf_token %}
+            {{ form.as_p }}
 
-    <button type="submit" class="save btn btn-default">Save</button>
-</form>
+            <button type="submit" class="save btn btn-default">Save</button>
+        </form>
+    </div>
+    <style>
+    .form {
+        max-width: 420px;
+        padding: 30px 38px 66px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    </style>
 {% endblock %}

@@ -1,6 +1,6 @@
 # Django Rindus_Bank
 
-This is a simple CRUD app built in Django and python3 for manage personal accounts.
+This is a simple CRUD app built with Django and python3 for manage personal accounts.
 
 ## Project Requisites
 
@@ -40,7 +40,7 @@ You need a system with docker-compose.
 5- Go to localhost:8000
 ```
 
-## Authors
+## Author
 
 * **Joaquín Cardoso**
 

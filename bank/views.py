@@ -1,11 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
-# Create your views here.
 from bank.forms import PersonForm, AccountForm
 from bank.models import Person, Account
 
-
+# Create your views here.
 @login_required
 def home(request):
     if request.user.is_authenticated:

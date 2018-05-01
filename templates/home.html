@@ -1,4 +1,14 @@
 {% block content %}
   <h2>Homepage</h2>
   <p>Hello {{ user.username }}!</p>
+
+<a href="{% url 'person_create' %}">New Person</a>
+
+<ul>
+    {% for people in people_list %}
+    <li>{{ people.first_name }}  ({{ people.last_name }} Pages)
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}

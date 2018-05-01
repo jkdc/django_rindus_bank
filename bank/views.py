@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
 from bank.forms import PersonForm
@@ -23,3 +23,12 @@ def person_create(request, template_name='crud/create.html'):
         return redirect('home')
     return render(request, template_name, {'form':form})
 
+@login_required
+def person_update(request, pk, template_name='crud/create.html'):
+    if request.user.is_authenticated:
+        person = get_object_or_404(Person, pk=pk)
+    form = PersonForm(request.POST or None, instance=person)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
+    return render(request, template_name, {'form':form})

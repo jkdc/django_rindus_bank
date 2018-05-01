@@ -7,6 +7,7 @@
 <ul>
     {% for people in people_list %}
     <li>{{ people.first_name }}  ({{ people.last_name }} Pages)
+    <a href="{% url 'person_update' people.pk %}">edit</a>
     </li>
     {% endfor %}
 </ul>

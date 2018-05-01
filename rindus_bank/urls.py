@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from bank.views import home, person_create
+from bank.views import home, person_create, person_update
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -29,4 +29,5 @@ urlpatterns = [
 
     #Crud Person
     url(r'^new_person$', person_create, name='person_create'),
+    url(r'^edit_person/(?P<pk>\d+)$', person_update, name='person_update'),
 ]

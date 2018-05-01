@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser, User
 from django.db import models
 from localflavor.generic.models import IBANField
 
+
 # Create your models here.
 class Person(models.Model):
     first_name = models.CharField(max_length=30)
@@ -10,6 +11,7 @@ class Person(models.Model):
 
     def __unicode__(self):
         return self.first_name
+
 
 class Account(models.Model):
     iban = IBANField()

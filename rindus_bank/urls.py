@@ -28,13 +28,13 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^$', home, name='home'),
 
-    #Crud Person
+    # Crud Person
     url(r'^new_person$', person_create, name='person_create'),
     url(r'^show_person/(?P<pk>\d+)$', person_read, name='person_read'),
     url(r'^edit_person/(?P<pk>\d+)$', person_update, name='person_update'),
     url(r'^delete_person/(?P<pk>\d+)$', person_delete, name='person_delete'),
 
-    #Crud Account
+    # Crud Account
     url(r'^new_account/(?P<pk>\d+)', account_create, name='account_create'),
     url(r'^account_person/(?P<pk>\d+)$', account_read, name='account_read'),
     url(r'^edit_account/(?P<pk>\d+)$', account_update, name='account_update'),

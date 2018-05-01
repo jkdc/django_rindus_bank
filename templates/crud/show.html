@@ -1,0 +1,27 @@
+<h1>Person: </h1>
+<h2>-First Name: </h2>
+<h2>-Last Name: </h2>
+<h1>Accounts</h1>
+<a href="{% url 'account_create' person.pk %}">Add New</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">IBAN</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for account in accounts %}
+    <tr>
+      <th scope="row"></th>
+      <td>{{ account.iban }}</td>
+      <td>
+          <a href="{% url 'account_create' account.pk %}">Show</a>
+          <a href="{% url 'account_update' account.pk %}">Update</a>
+          <a href="{% url 'account_delete' account.pk %}">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

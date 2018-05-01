@@ -43,6 +43,14 @@ def person_delete(request, pk, template_name='crud/delete_confirmation.html'):
         return redirect('home')
     return render(request, template_name, {'object':person})
 
+@login_required
+def person_read(request, pk, template_name='crud/show.html'):
+    if request.user.is_authenticated:
+        person = get_object_or_404(Person, pk=pk)
+        accounts = Account.objects.filter(person=person)
+        return render(request, template_name, {'person':person, 'accounts':accounts})
+    return render(request, template_name)
+
 #CRUD: Account
 @login_required
 def account_create(request, pk, template_name='crud/create.html'):

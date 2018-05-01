@@ -1,5 +1,5 @@
 Django>=1.8,<2.0
-psycopg2
+psycopg2-binary
 django-admin
 social-auth-app-django
 django-localflavor

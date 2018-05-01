@@ -17,7 +17,7 @@
   <tbody>
     {% for account in accounts %}
     <tr>
-      <th scope="row"></th>
+      <th scope="row">{{ forloop.counter }}</th>
       <td>{{ account.iban }}</td>
       <td>
           <a href="{% url 'account_read' account.pk %}">Show</a>

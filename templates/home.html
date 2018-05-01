@@ -16,7 +16,7 @@
   <tbody>
     {% for person in people_list %}
     <tr>
-      <th scope="row"></th>
+      <th scope="row">{{ forloop.counter }}</th>
       <td>{{ person.first_name }}  {{ person.last_name }}</td>
       <td>
           <a href="{% url 'person_read' person.pk %}">show</a>

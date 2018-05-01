@@ -5,10 +5,11 @@
 <a href="{% url 'person_create' %}">New Person</a>
 
 <ul>
-    {% for people in people_list %}
-    <li>{{ people.first_name }}  ({{ people.last_name }} Pages)
-    <a href="{% url 'person_update' people.pk %}">edit</a>
-    <a href="{% url 'person_delete' people.pk %}">delete</a>
+    {% for person in people_list %}
+    <li>{{ person.first_name }}  ({{ people.last_name }} Pages)
+    <a href="{% url 'person_read' person.pk %}">show</a>
+    <a href="{% url 'person_update' person.pk %}">edit</a>
+    <a href="{% url 'person_delete' person.pk %}">delete</a>
     </li>
     {% endfor %}
 </ul>

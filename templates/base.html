@@ -1,21 +1,40 @@
 <!DOCTYPE html>
- <html>
-    <head>
-        <title>Rindus Banks</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<html>
+<head>
+    <title>Rindus Banks</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-    </head>
-    <body>
-        <div class="page-header">
-            <h1><a href="/">Rindus Banks</a></h1>
-            <a href="{{request.META.HTTP_REFERER}}">Go back</a>
-        </div>
-        <div class="content container">
-            {% block content %}
-            {% endblock %}
-        </div>
-    </body>
+</head>
+<body>
+
+<div id="wrapper">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <h3><a href="/">Rindus Banks</a></h3>
+        {% if user.is_authenticated %}
+            <div class="navbar-header">
+                <a class="navbar-brand" href="{% url 'home' %}">
+                    <span class="glyphicon glyphicon-home"></span> Home
+                </a>
+            </div>
+
+            <div class="navbar-right">
+                <a class="navbar-brand" href="{{ request.META.HTTP_REFERER }}">
+                    <span class="glyphicon glyphicon-user"></span> Go back
+                </a>
+                <a class="navbar-brand" href="{% url 'logout' %}">
+                    <span class="glyphicon glyphicon-log-out"></span> Logout
+                </a>
+            </div>
+        {% endif %}
+    </nav>
+</div>
+<div class="content container">
+    {% block content %}
+    {% endblock %}
+</div>
+</body>
 </html>

@@ -1,17 +1,31 @@
+{% extends 'base.html' %}
+
 {% block content %}
   <h2>Homepage</h2>
   <p>Hello {{ user.username }}!</p>
 
-<a href="{% url 'person_create' %}">New Person</a>
-
-<ul>
+  <a href="{% url 'person_create' %}">New Person</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Person</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
     {% for person in people_list %}
-    <li>{{ person.first_name }}  ({{ people.last_name }} Pages)
-    <a href="{% url 'person_read' person.pk %}">show</a>
-    <a href="{% url 'person_update' person.pk %}">edit</a>
-    <a href="{% url 'person_delete' person.pk %}">delete</a>
-    </li>
+    <tr>
+      <th scope="row"></th>
+      <td>{{ person.first_name }}  {{ person.last_name }}</td>
+      <td>
+          <a href="{% url 'person_read' person.pk %}">show</a>
+          <a href="{% url 'person_update' person.pk %}">edit</a>
+          <a href="{% url 'person_delete' person.pk %}">delete</a>
+      </td>
+    </tr>
     {% endfor %}
-</ul>
+  </tbody>
+</table>
 
 {% endblock %}

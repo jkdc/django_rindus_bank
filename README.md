@@ -1,6 +1,6 @@
 # Django Rindus_Bank
 
-This is a simple CRUD app built with Django and python3 for manage personal accounts.
+This is a simple CRUD app built with Django, python3 and Bootstrap for manage personal accounts.
 
 ## Project Requisites
 
